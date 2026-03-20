@@ -1,6 +1,7 @@
 // COMSC-210 | Midterm 2 | Christine Susic
 
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
@@ -209,13 +210,47 @@ public:
 int main() {
     cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS;  // dummy statement to avoid compiler warning
 
+    //reading from file
+    ifstream fin; 
+    fin.open("names.txt");
+    if (fin.good()) {
+        cout << "File read successfully." << endl;
+    }
+    else 
+        cout << "File not found.\n";
+
     int value = rand() % (MAX-MIN+1) + MIN;
     
-    //40% probability of Event A happening
-    int prob = rand() % 100 + 1  //random number 1-100
-    if (prob <= 40) {
-        
+    /*//40% probability of Event A happening
+    int prob_40 = rand() % 100 + 1;  //random number 1-100
+    if (prob_40 <= 40) {
+        //helped at the beginning of the line
+        //ordering their coffee
     }
+    
+    //60% probability of Event A happening
+    int prob_60 = rand() % 100 + 1;  //random number 1-100
+    if (prob_60 <= 60) {
+        //new customer joining the end of the line
+    }
+    
+    //20% probability of Event A happening
+    int prob_20 = rand() % 100 + 1;  //random number 1-100
+    if (prob_20 <= 20) {
+        //customer at end of line deciding they don't want to wait and leaving
+    }
+    
+    //10% probability of Event A happening
+    int prob_10 = rand() % 100 + 1;  //random number 1-100
+    if (prob_10 <= 10) {
+        //any customer deciding they don't want to wait and leaving
+    }
+    
+    //10% probability of Event A happening
+    int prob_10_2 = rand() % 100 + 1;  //random number 1-100
+    if (prob_10_2 <= 10) {
+        //VIP customer gets to skip the line and go straight to the counter to order
+    }*/
 
     cout << "Store opens: " << endl;
     cout << "\tResulting line: " << endl;
