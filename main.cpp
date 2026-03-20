@@ -1,11 +1,13 @@
 // COMSC-210 | Midterm 2 | Christine Susic
 
 #include <iostream>
+#include <vector>
 #include <fstream>
 using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
 const int MIN = 0, MAX = 10; //range 0-10
+const int SIZE = 99;
 
 class DoublyLinkedList {
 private:
@@ -210,6 +212,11 @@ public:
 int main() {
     cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS;  // dummy statement to avoid compiler warning
 
+    //vector of names
+    std::vector<int> names;
+    //temporary variable for reading names
+    string tempName;
+
     //reading from file
     ifstream fin; 
     fin.open("names.txt");
@@ -218,6 +225,15 @@ int main() {
     }
     else 
         cout << "File not found.\n";
+    
+    //names in the file (int)
+    while (getline(fin, tempName)) {  //reads string tempName
+        names.push_back(tempName);
+    }
+    
+    //output vector
+    cout << "Names Vector: ";
+    for (int val : names) cout << val << " "; cout << endl;
 
     int value = rand() % (MAX-MIN+1) + MIN;
     
