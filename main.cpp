@@ -212,12 +212,15 @@ public:
 int main() {
     cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS;  // dummy statement to avoid compiler warning
 
-    //vector of names
-    //std::vector<int> names;
-    //temporary variable for reading names
-    string tempName;
+    srand(time(0));
+    DoublyLinkedList list;
+
     string name = "Betty";
 
+    vector <string> names;
+    
+    //temporary variable for reading names
+    string tempName;
     //reading from file
     ifstream fin; 
     fin.open("names.txt");
@@ -227,15 +230,12 @@ int main() {
     else 
         cout << "File not found.\n";
     
-    /*//names in the file (int)
+    //names in the file (string)
     while (getline(fin, tempName)) {  //reads string tempName
         names.push_back(tempName);
-    }*/
+    }
     
     fin.close();
-    
-    //driver program
-    DoublyLinkedList list;
     
     //output vector
     //cout << "Names Vector: ";
@@ -248,13 +248,11 @@ int main() {
     //simulation for 20 time periods
     for (int i = 1; i < 21; i++) {
         cout << "Time step #" << i << ": " << endl;
-        //if (i = 1) {
+        
         //add five customers to the line
-        //list.push_back("Jerry");
-        //}
-        //else () {
-            
-        //}
+        for (int i = 0; i < 5; i++) {
+            list.push_back(name);
+        }
         
         //40% probability of Event A happening
         int prob_40 = rand() % 100 + 1;  //random number 1-100
@@ -296,7 +294,7 @@ int main() {
             cout << "\t" << name << " (VIP) joins the front of the line" << endl;
         }
 
-        cout << "\tResulting line: " << endl << "\t";
+        cout << "\tResulting line: " << endl << "\t" << "\t";
         list.print();
     
     }
