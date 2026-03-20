@@ -216,6 +216,7 @@ int main() {
     std::vector<int> names;
     //temporary variable for reading names
     string tempName;
+    string name;
 
     //reading from file
     ifstream fin; 
@@ -241,54 +242,52 @@ int main() {
          
     cout << "Store opens: " << endl;
     cout << "\tResulting line: " << endl;
+    cout << "\t" << name << endl;
     
     //simulation for 20 time periods
     for (int i = 1; i < 21; i++) {
         cout << "Time step #" << i << ": " << endl;
-        if (i = 1) {
+        /*if (i = 1) {
         //add five customers to the line
         }
         else () {
             
         }
+        */
+        //40% probability of Event A happening
+        int prob_40 = rand() % 100 + 1;  //random number 1-100
+        if (prob_40 <= 40) {
+            //helped at the beginning of the line
+            cout << "\t" << name << "is served" << endl;
+        }
     
-    string name;
-    cout << name << "joined the line" << endl;
-    cout << name << "left the line" << endl;
-    cout << name << "(VIP) joins the front of the line" << endl;
-    cout << name << "is served" << endl;
-    cout << name << "(at the rear) left the line" << endl;
+        //60% probability of Event A happening
+        int prob_60 = rand() % 100 + 1;  //random number 1-100
+        if (prob_60 <= 60) {
+            //new customer joining the end of the line
+            cout << "\t" << name << "joins the line" << endl;
+        }
     
-    /*//40% probability of Event A happening
-    int prob_40 = rand() % 100 + 1;  //random number 1-100
-    if (prob_40 <= 40) {
-        //helped at the beginning of the line
-        //ordering their coffee
-    }
+        //20% probability of Event A happening
+        int prob_20 = rand() % 100 + 1;  //random number 1-100
+        if (prob_20 <= 20) {
+            //customer at end of line deciding they don't want to wait and leaving
+            cout << "\t" << name << "(at the rear) left the line" << endl;
+        }
     
-    //60% probability of Event A happening
-    int prob_60 = rand() % 100 + 1;  //random number 1-100
-    if (prob_60 <= 60) {
-        //new customer joining the end of the line
-    }
+        //10% probability of Event A happening
+        int prob_10 = rand() % 100 + 1;  //random number 1-100
+        if (prob_10 <= 10) {
+            //any customer deciding they don't want to wait and leaving
+            cout << "\t" << name << "left the line" << endl;
+        }
     
-    //20% probability of Event A happening
-    int prob_20 = rand() % 100 + 1;  //random number 1-100
-    if (prob_20 <= 20) {
-        //customer at end of line deciding they don't want to wait and leaving
-    }
-    
-    //10% probability of Event A happening
-    int prob_10 = rand() % 100 + 1;  //random number 1-100
-    if (prob_10 <= 10) {
-        //any customer deciding they don't want to wait and leaving
-    }
-    
-    //10% probability of Event A happening
-    int prob_10_2 = rand() % 100 + 1;  //random number 1-100
-    if (prob_10_2 <= 10) {
-        //VIP customer gets to skip the line and go straight to the counter to order
-    }*/
+        //10% probability of Event A happening
+        int prob_10_2 = rand() % 100 + 1;  //random number 1-100
+        if (prob_10_2 <= 10) {
+            //VIP customer gets to skip the line and go straight to the counter to order
+            cout << "\t" << name << "(VIP) joins the front of the line" << endl;
+        }
     
     }
     
