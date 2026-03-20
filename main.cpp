@@ -6,8 +6,7 @@
 using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
-const int MIN = 0, MAX = 10; //range 0-10
-const int SIZE = 99;
+const int MIN = 1, MAX = 100; //range 0-100
 
 class DoublyLinkedList {
 private:
@@ -215,10 +214,7 @@ int main() {
     srand(time(0));
     DoublyLinkedList list;
 
-    string name = "Betty";
-
     vector <string> names;
-    
     //temporary variable for reading names
     string tempName;
     //reading from file
@@ -233,29 +229,31 @@ int main() {
     //names in the file (string)
     while (getline(fin, tempName)) {  //reads string tempName
         names.push_back(tempName);
+        cout << tempName << " ";
+    }
+    
+    for (int i = 1; i < 4; i++) {
+        cout << tempName << " ";
     }
     
     fin.close();
-    
-    //output vector
-    //cout << "Names Vector: ";
-    //for (int val : names) cout << val << " "; cout << endl;
-
-    int value = rand() % (MAX-MIN+1) + MIN;
          
     cout << "Store opens: " << endl;
     
+    string name = "Betty";
     //simulation for 20 time periods
     for (int i = 1; i < 21; i++) {
         cout << "Time step #" << i << ": " << endl;
         
+        list.insert_after(name, 1);
         //add five customers to the line
-        for (int i = 0; i < 5; i++) {
+        /*for (int i = 0; i < 5; i++) {
             list.push_back(name);
-        }
+            cout << endl;
+        }*/
         
         //40% probability of Event A happening
-        int prob_40 = rand() % 100 + 1;  //random number 1-100
+        int prob_40 = rand() % (MAX-MIN+1) + MIN; //random number 1-100
         if (prob_40 <= 40) {
             //helped at the beginning of the line
             list.pop_front();
@@ -263,7 +261,7 @@ int main() {
         }
     
         //60% probability of Event A happening
-        int prob_60 = rand() % 100 + 1;  //random number 1-100
+        int prob_60 = rand() % (MAX-MIN+1) + MIN;  //random number 1-100
         if (prob_60 <= 60) {
             //new customer joining the end of the line
             list.push_back(name);
@@ -271,7 +269,7 @@ int main() {
         }
     
         //20% probability of Event A happening
-        int prob_20 = rand() % 100 + 1;  //random number 1-100
+        int prob_20 = rand() % (MAX-MIN+1) + MIN;  //random number 1-100
         if (prob_20 <= 20) {
             //customer at end of line deciding they don't want to wait and leaving
             list.pop_back();
@@ -279,7 +277,7 @@ int main() {
         }
     
         //10% probability of Event A happening
-        int prob_10 = rand() % 100 + 1;  //random number 1-100
+        int prob_10 = rand() % (MAX-MIN+1) + MIN; //random number 1-100
         if (prob_10 <= 10) {
             //any customer deciding they don't want to wait and leaving
             list.pop_back();
@@ -287,7 +285,7 @@ int main() {
         }
     
         //10% probability of Event A happening
-        int prob_10_2 = rand() % 100 + 1;  //random number 1-100
+        int prob_10_2 = rand() % (MAX-MIN+1) + MIN;  //random number 1-100
         if (prob_10_2 <= 10) {
             //VIP customer gets to skip the line and go straight to the counter to order
             list.push_front(name);
