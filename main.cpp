@@ -228,8 +228,6 @@ int main() {
     
     //names in the file (string)
     while (getline(fin, name)) {  //reads string tempName
-        //names.push_back(tempName);
-        //cout << name << " ";
     }
     
     fin.close();
@@ -293,4 +291,3 @@ int main() {
     }
     
     return 0;
-}
