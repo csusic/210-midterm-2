@@ -216,7 +216,7 @@ int main() {
 
     vector <string> names;
     //temporary variable for reading names
-    string tempName;
+    string name;
     //reading from file
     ifstream fin; 
     fin.open("names.txt");
@@ -227,30 +227,26 @@ int main() {
         cout << "File not found.\n";
     
     //names in the file (string)
-    while (getline(fin, tempName)) {  //reads string tempName
-        names.push_back(tempName);
-        cout << tempName << " ";
+    while (getline(fin, name)) {  //reads string tempName
+        //names.push_back(tempName);
+        cout << name << " ";
     }
     
-    for (int i = 1; i < 4; i++) {
-        cout << tempName << " ";
-    }
+    
     
     fin.close();
          
     cout << "Store opens: " << endl;
     
-    string name = "Betty";
+    //add five customers to the line
+    for (int i = 0; i < 5; i++) {
+        list.push_back(name);
+        cout << endl;
+    }
+    
     //simulation for 20 time periods
     for (int i = 1; i < 21; i++) {
         cout << "Time step #" << i << ": " << endl;
-        
-        list.insert_after(name, 1);
-        //add five customers to the line
-        /*for (int i = 0; i < 5; i++) {
-            list.push_back(name);
-            cout << endl;
-        }*/
         
         //40% probability of Event A happening
         int prob_40 = rand() % (MAX-MIN+1) + MIN; //random number 1-100
