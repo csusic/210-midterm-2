@@ -12,10 +12,10 @@ const int SIZE = 99;
 class DoublyLinkedList {
 private:
     struct Node {
-        int data;
+        string data;
         Node* prev;
         Node* next;
-        Node(int val, Node* p = nullptr, Node* n = nullptr) {
+        Node(string val, Node* p = nullptr, Node* n = nullptr) {
             data = val; 
             prev = p;
             next = n;
@@ -28,7 +28,7 @@ private:
 public:
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
 
-    void insert_after(int value, int position) {
+    void insert_after(string value, int position) {
         if (position < 0) {
             cout << "Position must be >= 0." << endl;
             return;
@@ -59,7 +59,7 @@ public:
         temp->next = newNode;
     }
 
-    void delete_val(int value) {
+    void delete_val(string value) {
         if (!head) return;
 
         Node* temp = head;
@@ -119,7 +119,7 @@ public:
         delete temp;
     }
 
-    void push_back(int v) {
+    void push_back(string v) {
         Node* newNode = new Node(v);
         if (!tail)
             head = tail = newNode;
@@ -130,7 +130,7 @@ public:
         }
     }
     
-    void push_front(int v) {
+    void push_front(string v) {
         Node* newNode = new Node(v);
         if (!head)
             head = tail = newNode;
@@ -213,7 +213,7 @@ int main() {
     cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS;  // dummy statement to avoid compiler warning
 
     //vector of names
-    std::vector<int> names;
+    //std::vector<int> names;
     //temporary variable for reading names
     string tempName;
     string name;
@@ -234,15 +234,16 @@ int main() {
     
     fin.close();
     
+    //driver program
+    DoublyLinkedList list;
+    
     //output vector
-    cout << "Names Vector: ";
-    for (int val : names) cout << val << " "; cout << endl;
+    //cout << "Names Vector: ";
+    //for (int val : names) cout << val << " "; cout << endl;
 
     int value = rand() % (MAX-MIN+1) + MIN;
          
     cout << "Store opens: " << endl;
-    cout << "\tResulting line: " << endl;
-    cout << "\t" << name << endl;
     
     //simulation for 20 time periods
     for (int i = 1; i < 21; i++) {
@@ -286,8 +287,12 @@ int main() {
         int prob_10_2 = rand() % 100 + 1;  //random number 1-100
         if (prob_10_2 <= 10) {
             //VIP customer gets to skip the line and go straight to the counter to order
+            list.push_back(name);
             cout << "\t" << name << "(VIP) joins the front of the line" << endl;
         }
+
+        cout << "\tResulting line: " << endl;
+        list.print();
     
     }
     
