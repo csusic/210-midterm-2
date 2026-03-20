@@ -229,21 +229,20 @@ int main() {
     //names in the file (string)
     while (getline(fin, name)) {  //reads string tempName
         //names.push_back(tempName);
-        cout << name << " ";
+        //cout << name << " ";
     }
-    
-    
     
     fin.close();
          
     cout << "Store opens: " << endl;
     
     //add five customers to the line
-    for (int i = 0; i < 5; i++) {
-        list.push_back(name);
-        cout << endl;
-    }
-    
+    list.push_back(name);
+    list.push_back(name);
+    list.push_back(name);
+    list.push_back(name);
+    list.push_back(name);
+        
     //simulation for 20 time periods
     for (int i = 1; i < 21; i++) {
         cout << "Time step #" << i << ": " << endl;
