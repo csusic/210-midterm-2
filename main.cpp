@@ -226,16 +226,38 @@ int main() {
     else 
         cout << "File not found.\n";
     
-    //names in the file (int)
+    /*//names in the file (int)
     while (getline(fin, tempName)) {  //reads string tempName
         names.push_back(tempName);
-    }
+    }*/
+    
+    fin.close();
     
     //output vector
     cout << "Names Vector: ";
     for (int val : names) cout << val << " "; cout << endl;
 
     int value = rand() % (MAX-MIN+1) + MIN;
+         
+    cout << "Store opens: " << endl;
+    cout << "\tResulting line: " << endl;
+    
+    //simulation for 20 time periods
+    for (int i = 1; i < 21; i++) {
+        cout << "Time step #" << i << ": " << endl;
+        if (i = 1) {
+        //add five customers to the line
+        }
+        else () {
+            
+        }
+    
+    string name;
+    cout << name << "joined the line" << endl;
+    cout << name << "left the line" << endl;
+    cout << name << "(VIP) joins the front of the line" << endl;
+    cout << name << "is served" << endl;
+    cout << name << "(at the rear) left the line" << endl;
     
     /*//40% probability of Event A happening
     int prob_40 = rand() % 100 + 1;  //random number 1-100
@@ -267,20 +289,8 @@ int main() {
     if (prob_10_2 <= 10) {
         //VIP customer gets to skip the line and go straight to the counter to order
     }*/
-
-    cout << "Store opens: " << endl;
-    cout << "\tResulting line: " << endl;
     
-    for (int i = 1; i < 4; i++) {
-        cout << "Time step #" << i << ": " << endl;
     }
-    
-    string name;
-    cout << name << "joined the line";
-    cout << name << "left the line";
-    cout << name << "(VIP) joins the front of the line";
-    cout << name << "is served";
-    cout << name << "(at the rear) left the line";
     
     return 0;
 }
